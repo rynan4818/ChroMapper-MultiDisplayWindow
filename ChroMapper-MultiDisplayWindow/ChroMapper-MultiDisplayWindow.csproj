@@ -34,12 +34,22 @@
     <Reference Include="Main">
       <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\Main.dll</HintPath>
     </Reference>
+    <Reference Include="Input">
+      <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\Input.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
@@ -63,8 +73,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\ActionMapsController.cs" />
+    <Compile Include="Component\DefaultCameraController.cs" />
+    <Compile Include="Component\MultiDisplayController.cs" />
+    <Compile Include="Configuration\Oprions.cs" />
+    <Compile Include="Controller\WindowController.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface\MultiDisplayUI.cs" />
+    <Compile Include="UserInterface\UI.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetFileName)" "$(ChroMapperDir)\Plugins"
+if $(ConfigurationName)==Release (
+  if not exist "$(ProjectDir)ReleasesArchives\Release\Plugins" mkdir "$(ProjectDir)ReleasesArchives\Release\Plugins"
+  copy /Y "$(TargetFileName)" "$(ProjectDir)ReleasesArchives\Release\Plugins"
+  if exist "$(ProjectDir)ReleasesArchives\ChroMapper-MultiDisplayWindow-.zip" del "$(ProjectDir)ReleasesArchives\ChroMapper-MultiDisplayWindow-.zip"
+  powershell compress-archive -Path "$(ProjectDir)ReleasesArchives\Release\*" -DestinationPath "$(ProjectDir)ReleasesArchives\ChroMapper-MultiDisplayWindow-.zip"
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

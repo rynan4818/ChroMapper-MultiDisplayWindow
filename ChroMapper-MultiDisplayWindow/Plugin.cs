@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using ChroMapper_MultiDisplayWindow.Component;
+using ChroMapper_MultiDisplayWindow.UserInterface;
 
 namespace ChroMapper_MultiDisplayWindow
 {
     [Plugin("Multi Display Window")]
     public class Plugin
     {
+        public static MultiDisplayController multiDisplayController;
+        public static UI _ui;
+        public static int activeWindow = 1;
         [Init]
         private void Init()
         {
             Debug.Log("Multi Display Window Plugin has loaded!");
             SceneManager.sceneLoaded += SceneLoaded;
+            _ui = new UI();
         }
 
         [Exit]
@@ -23,7 +29,11 @@ namespace ChroMapper_MultiDisplayWindow
         {
             if (arg0.buildIndex != 3) // Mapper scene
                 return;
+            if (multiDisplayController != null && multiDisplayController.isActiveAndEnabled)
+                return;
+            multiDisplayController = new GameObject("MultiDisplayWindow").AddComponent<MultiDisplayController>();
             MapEditorUI mapEditorUI = Object.FindObjectOfType<MapEditorUI>();
+            _ui.AddMenu(mapEditorUI);
         }
     }
 }
