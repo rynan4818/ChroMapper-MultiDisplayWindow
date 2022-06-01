@@ -51,8 +51,10 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     }
                     if (!check)
                     {
-                        _subWindow2.isOn = false;
-                        _subWindow3.isOn = false;
+                        if (_subWindow2 != null)
+                            _subWindow2.isOn = false;
+                        if (_subWindow3 != null)
+                            _subWindow3.isOn = false;
                     }
                     Options.Instance.subWindow1 = check;
                 });
@@ -102,7 +104,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                         }
                         if (check)
                             _subWindow1.isOn = true;
-                        if (!check)
+                        if (!check && _subWindow3 != null)
                             _subWindow3.isOn = false;
                         Options.Instance.subWindow2 = check;
                     });
