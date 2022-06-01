@@ -67,7 +67,7 @@ Load the map and bring up the editor screen. Press the **Tab key** to bring up t
     - Resets the window layout.
 - Reset Cam Pos
     - サブウィンドウのカメラ位置を保存した状態にリセットします。
-    - Resets the camera position in the subwindow to the saved state.
+    - Resets the camera position in the sub-window to the saved state.
 - Save Cam Pos
     - 現在のサブウィンドウのカメラ位置を保存します。
     - Saves the camera position in the current subwindow
@@ -75,11 +75,16 @@ Load the map and bring up the editor screen. Press the **Tab key** to bring up t
     - 設定パネルを閉じます。
     - Close the settings panel.
 
+サブウィンドウを選択中は、カメラの移動操作は選択しているウィンドウが対象になります。
 
-一度作成したウィンドウはUnityの仕様でChroMapperを終了するまで閉じることができません。
+一度作成したサブウィンドウはUnityの仕様でChroMapperを終了するまで閉じることができません。
 
 動作不良を起こすため[ChroMapper-CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement)のマルチウィンドウ機能と同時使用しないでください。
 
-Once a window is created, it cannot be closed until ChroMapper is closed due to Unity specifications.
+----
+
+While a sub-window is selected, the camera movement operation targets the selected window.
+
+Once a sub-window is created, it cannot be closed until ChroMapper is closed due to Unity specifications.
 
 Do not use simultaneously with the multi-window function of [ChroMapper-CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement) as it may cause malfunction.
