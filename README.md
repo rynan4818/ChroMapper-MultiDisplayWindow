@@ -1,5 +1,9 @@
 # ChroMapper-MultiDisplayWindow
 
+カメラスクリプト作成ツールの[CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement)にあるマルチディスプレイウィンドウ機能を、作譜用に別のプラグインにしました。
+
+The multi-display window feature in the [CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement) camera scripting tool has been made into a separate plug-in for mapping.
+
 ![image](https://user-images.githubusercontent.com/14249877/171408555-26aa9a59-d6be-4c33-91fb-fcdeea42f00d.png)
 
 BeatSaberの作譜ツールの[ChroMapper](https://github.com/Caeden117/ChroMapper)で、マルチディスプレイ環境の時にマルチウィンドウで複数カメラで表示するプラグインです。
@@ -79,6 +83,10 @@ Load the map and bring up the editor screen. Press the **Tab key** to bring up t
 
 一度作成したサブウィンドウはUnityの仕様でChroMapperを終了するまで閉じることができません。
 
+サブウィンドウはモニタのアスペクト比に依存するため、サイズ変更はアスペクト比固定になっています。
+
+マルチディスプレイモード時にメインウィンドウのサイズを変更すると、画面が崩れることがありますがウィンドウをドラッグで移動すると直ります。
+
 動作不良を起こすため[ChroMapper-CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement)のマルチウィンドウ機能と同時使用しないでください。
 
 ----
@@ -86,5 +94,9 @@ Load the map and bring up the editor screen. Press the **Tab key** to bring up t
 While a sub-window is selected, the camera movement operation targets the selected window.
 
 Once a sub-window is created, it cannot be closed until ChroMapper is closed due to Unity specifications.
+
+Since the sub-window depends on the aspect ratio of the monitor, resizing is fixed to the aspect ratio.
+
+If the main window is resized in multi-display mode, the screen may collapse, but this can be fixed by dragging the window.
 
 Do not use simultaneously with the multi-window function of [ChroMapper-CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement) as it may cause malfunction.
