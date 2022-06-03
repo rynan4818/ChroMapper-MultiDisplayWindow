@@ -114,7 +114,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 SetCamFov(2, Options.Instance.subCamera2FOV);
                 activeCameraCount = 2;
             }
-            if (Plugin.activeWindow - 1 > activeCameraCount && activeCameraCount == 1)
+            if (Plugin.activeWindow - 1 > activeCameraCount && activeCameraCount == 2)
             {
                 Debug.Log("Sub Camera 3 Active");
                 subCamera[2] = new GameObject("Sub Camera 3").AddComponent<Camera>();
