@@ -45,7 +45,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 if (Options.Instance.subDisplay1Width == 0)
                     windowInfos[1] = WindowController.windowReplace(defaultWindowName, subWindow1Name, mainPosSize.Item1 + 100, mainPosSize.Item2 + 100, 0.5, false);
                 else
-                    windowInfos[1] = WindowController.windowReplace(defaultWindowName, subWindow1Name, (int)Options.Instance.subDisplay1PosX, (int)Options.Instance.subDisplay1PosY, (int)Options.Instance.subDisplay1Width, (int)Options.Instance.subDisplay1Height, false);
+                    windowInfos[1] = WindowController.windowReplace(defaultWindowName, subWindow1Name, Options.Instance.subDisplay1PosX, Options.Instance.subDisplay1PosY, Options.Instance.subDisplay1Width, Options.Instance.subDisplay1Height, false);
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
                 Plugin.activeWindow = 2;
             }
@@ -57,7 +57,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 if (Options.Instance.subDisplay2Width == 0)
                     windowInfos[2] = WindowController.windowReplace(defaultWindowName, subWindow2Name, mainPosSize.Item1 + 100, mainPosSize.Item2 + 200, 0.5, false);
                 else
-                    windowInfos[2] = WindowController.windowReplace(defaultWindowName, subWindow2Name, (int)Options.Instance.subDisplay2PosX, (int)Options.Instance.subDisplay2PosY, (int)Options.Instance.subDisplay2Width, (int)Options.Instance.subDisplay2Height, false);
+                    windowInfos[2] = WindowController.windowReplace(defaultWindowName, subWindow2Name, Options.Instance.subDisplay2PosX, Options.Instance.subDisplay2PosY, Options.Instance.subDisplay2Width, Options.Instance.subDisplay2Height, false);
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
                 Plugin.activeWindow = 3;
             }
@@ -69,7 +69,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 if (Options.Instance.subDisplay3Width == 0)
                     windowInfos[3] = WindowController.windowReplace(defaultWindowName, subWindow3Name, mainPosSize.Item1 + 100, mainPosSize.Item2 + 300, 0.5, false);
                 else
-                    windowInfos[3] = WindowController.windowReplace(defaultWindowName, subWindow3Name, (int)Options.Instance.subDisplay3PosX, (int)Options.Instance.subDisplay3PosY, (int)Options.Instance.subDisplay3Width, (int)Options.Instance.subDisplay3Height, false);
+                    windowInfos[3] = WindowController.windowReplace(defaultWindowName, subWindow3Name, Options.Instance.subDisplay3PosX, Options.Instance.subDisplay3PosY, Options.Instance.subDisplay3Width, Options.Instance.subDisplay3Height, false);
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
                 Plugin.activeWindow = 4;
             }
@@ -78,7 +78,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 if (Options.Instance.mainDisplayWidth == 0)
                     windowInfos[0] = WindowController.windowReplace(Application.productName, null, mainPosSize.Item1, mainPosSize.Item2, mainPosSize.Item3, mainPosSize.Item4, false, 1);
                 else
-                    windowInfos[0] = WindowController.windowReplace(Application.productName, null, (int)Options.Instance.mainDisplayPosX, (int)Options.Instance.mainDisplayPosY, (int)Options.Instance.mainDisplayWidth, (int)Options.Instance.mainDisplayHeight, false, 1);
+                    windowInfos[0] = WindowController.windowReplace(Application.productName, null, Options.Instance.mainDisplayPosX, Options.Instance.mainDisplayPosY, Options.Instance.mainDisplayWidth, Options.Instance.mainDisplayHeight, false, 1);
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
             }
             createDisplayActive = false;
