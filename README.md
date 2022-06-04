@@ -141,5 +141,5 @@ To build this project, you must create a `ChroMapper-MultiDisplayWindow\ChroMapp
 ## アイコン素材 (Icons)
 - ICONION
 - http://iconion.com/ja/
-- Google Fonts (Monochrome Photos)
+- Google Fonts (Window)
 - https://fonts.google.com/icons?selected=Material%20Icons%3Awindow%3A
