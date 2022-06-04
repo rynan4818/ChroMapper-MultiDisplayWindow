@@ -43,7 +43,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                 var subWindow1Check = UI.AddCheckbox(_multiDisplayMenu.transform, "Sub Window 1", "Sub Window 1", Options.Instance.subWindow1, (check) =>
                 {
                     _message.text = "";
-                    if (Plugin.activeWindow > 1)
+                    if (MultiDisplayController.activeWindow > 1)
                     {
                         _subWindow1.isOn = true;
                         _message.text = deleteDisplayMessage;
@@ -96,7 +96,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     var subWindowCheck2 = UI.AddCheckbox(_multiDisplayMenu.transform, "Sub Window 2", "Sub Window 2", Options.Instance.subWindow2, (check) =>
                     {
                         _message.text = "";
-                        if (Plugin.activeWindow > 2)
+                        if (MultiDisplayController.activeWindow > 2)
                         {
                             _subWindow2.isOn = true;
                             _message.text = deleteDisplayMessage;
@@ -147,7 +147,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     var subWindowCheck3 = UI.AddCheckbox(_multiDisplayMenu.transform, "Sub Window 3", "Sub Window 3", Options.Instance.subWindow3, (check) =>
                     {
                         _message.text = "";
-                        if (Plugin.activeWindow > 3)
+                        if (MultiDisplayController.activeWindow > 3)
                         {
                             _subWindow3.isOn = true;
                             _message.text = deleteDisplayMessage;

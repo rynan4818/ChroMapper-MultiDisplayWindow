@@ -10,7 +10,6 @@ namespace ChroMapper_MultiDisplayWindow
     {
         public static MultiDisplayController multiDisplayController;
         public static UI _ui;
-        public static int activeWindow = 1;
         [Init]
         private void Init()
         {
