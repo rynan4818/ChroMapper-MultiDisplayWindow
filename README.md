@@ -123,3 +123,23 @@ The following is a description of the items that cannot be set in the plugin UI.
 
 キーバインドはUnityのInputSystem形式で設定してください。<Br>
 Key bindings should be set in Unity's InputSystem format.
+
+# 開発者情報 (Developers)
+このプロジェクトをビルドするには、ChroMapperのインストールパスを指定する`ChroMapper-MultiDisplayWindow\ChroMapper-MultiDisplayWindow.csproj.user`ファイルを作成する必要があります。
+
+To build this project, you must create a `ChroMapper-MultiDisplayWindow\ChroMapper-MultiDisplayWindow.csproj.user` file that specifies the ChroMapper installation path.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ChroMapperDir>C:\TOOL\ChroMapper\chromapper</ChroMapperDir>
+  </PropertyGroup>
+</Project>
+```
+
+## アイコン素材 (Icons)
+- ICONION
+- http://iconion.com/ja/
+- Google Fonts (Monochrome Photos)
+- https://fonts.google.com/icons?selected=Material%20Icons%3Awindow%3A
