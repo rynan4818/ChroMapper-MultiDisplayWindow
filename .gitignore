@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+#ChroMapper-MultiDisplayWindow
+ChroMapper-MultiDisplayWindow-*.zip
+ChroMapper-MultiDisplayWindow*.dll
+temp/

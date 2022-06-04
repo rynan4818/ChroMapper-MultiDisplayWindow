@@ -206,15 +206,19 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
 
                 var saveLayoutButton = UI.AddButton(_multiDisplayMenu.transform, "Save Layout", "Save Window Layout", () =>
                 {
-                    Plugin.multiDisplayController.SaveWindowLayout();
-                    _message.text = "Save Window Layout!";
+                    if(Plugin.multiDisplayController.SaveWindowLayout())
+                        _message.text = "Save Window Layout!";
+                    else
+                        _message.text = "";
                 });
                 UI.MoveTransform(saveLayoutButton.transform, 70, 25, 0, 1, 140, -185);
 
                 var resetLayoutButton = UI.AddButton(_multiDisplayMenu.transform, "Reset Layout", "Reset Window Layout", () =>
                 {
-                    Plugin.multiDisplayController.ResetWindowLayout();
-                    _message.text = "Reset Layout!";
+                    if(Plugin.multiDisplayController.ResetWindowLayout())
+                        _message.text = "Reset Layout!";
+                    else
+                        _message.text = "";
                 });
                 UI.MoveTransform(resetLayoutButton.transform, 70, 25, 0, 1, 240, -185);
 
@@ -223,14 +227,16 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     Plugin.multiDisplayController.ResetCamPos(1);
                     Plugin.multiDisplayController.ResetCamPos(2);
                     Plugin.multiDisplayController.ResetCamPos(3);
-                    _message.text = "Rest Camera Position!";
+                    _message.text = "Reset Camera Position!";
                 });
                 UI.MoveTransform(resetCamButton.transform, 70, 25, 0, 1, 50, -215);
 
                 var saveButton = UI.AddButton(_multiDisplayMenu.transform, "Save Cam Pos", "Save Cam Pos", () =>
                 {
-                    Plugin.multiDisplayController.SaveCamPostion();
-                    _message.text = "Save Setting!";
+                    if(Plugin.multiDisplayController.SaveCamPostion())
+                        _message.text = "Save Camera Position!";
+                    else
+                        _message.text = "";
                 });
                 UI.MoveTransform(saveButton.transform, 70, 25, 0, 1, 140, -215);
             }

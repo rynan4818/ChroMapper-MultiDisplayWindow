@@ -52,7 +52,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
                 activeWindow = 2;
             }
-            if (Display.displays.Length > 2 && !Display.displays[2].active && Options.Instance.subWindow1 && Options.Instance.subWindow2)
+            if (Display.displays.Length > 2 && activeWindow == 2 && Options.Instance.subWindow1 && Options.Instance.subWindow2)
             {
                 Debug.Log("Sub Display 2 Active");
                 Display.displays[2].Activate();
@@ -66,7 +66,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 yield return new WaitForSeconds(Options.Instance.multiDislayCreateDelay);
                 activeWindow = 3;
             }
-            if (Display.displays.Length > 3 && !Display.displays[3].active && Options.Instance.subWindow1 && Options.Instance.subWindow2 && Options.Instance.subWindow3)
+            if (Display.displays.Length > 3 && activeWindow == 3 && Options.Instance.subWindow1 && Options.Instance.subWindow2 && Options.Instance.subWindow3)
             {
                 Debug.Log("Sub Display 3 Active");
                 Display.displays[3].Activate();
@@ -135,10 +135,10 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 activeCameraCount = 3;
             }
         }
-        public void SaveWindowLayout()
+        public bool SaveWindowLayout()
         {
             if (activeWindow < 2)
-                return;
+                return false;
             var mainDisplay = WindowController.getWindowPosSize(windowInfos[0].Item2);
             Options.Instance.mainDisplayPosX = mainDisplay.Item1;
             Options.Instance.mainDisplayPosY = mainDisplay.Item2;
@@ -166,11 +166,12 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 Options.Instance.subDisplay3Height = subDisplay3.Item4;
             }
             Options.Instance.SettingSave();
+            return true;
         }
-        public void SaveCamPostion()
+        public bool SaveCamPostion()
         {
             if (activeWindow < 2)
-                return;
+                return false;
             if (subCamera[0] != null)
             {
                 Options.Instance.subCamera1PosX = subCamera[0].transform.position.x;
@@ -202,10 +203,13 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 Options.Instance.subCamera3FOV = subCamera[2].fieldOfView;
             }
             Options.Instance.SettingSave();
+            return true;
         }
 
-        public void ResetWindowLayout()
+        public bool ResetWindowLayout()
         {
+            if (activeWindow < 2)
+                return false;
             Options.Instance.mainDisplayPosX = 0;
             Options.Instance.mainDisplayPosY = 0;
             Options.Instance.mainDisplayWidth = 0;
@@ -222,9 +226,8 @@ namespace ChroMapper_MultiDisplayWindow.Component
             Options.Instance.subDisplay3PosY = 0;
             Options.Instance.subDisplay3Width = 0;
             Options.Instance.subDisplay3Height = 0;
-            if (activeWindow < 2)
-                return;
             StartCoroutine("DelayResetWindowLayout");
+            return true;
         }
         private IEnumerator DelayResetWindowLayout()
         {
