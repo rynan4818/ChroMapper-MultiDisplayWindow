@@ -100,3 +100,46 @@ Since the sub-window depends on the aspect ratio of the monitor, resizing is fix
 If the main window is resized in multi-display mode, the screen may collapse, but this can be fixed by dragging the window.
 
 Do not use simultaneously with the multi-window function of [ChroMapper-CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement) as it may cause malfunction.
+
+## 設定ファイルについて (About the configuration file)
+設定ファイルはChroMapperの設定ファイルと同じフォルダ`ユーザ設定フォルダ(Users)\ユーザ名\AppData\LocalLow\BinaryElement\ChroMapper`の`MultiDisplayWindow.json`に保存されます。
+
+The configuration file is saved in `MultiDisplayWindow.json` in the same folder as ChroMapper's configuration file `User Settings Folder(Users)\User Name\AppData\LocalLow\BinaryElement\ChroMapper`.
+
+プラグインのUIで設定できない項目の説明は以下です。
+
+The following is a description of the items that cannot be set in the plugin UI.
+
+| 設定項目 (Setting Item) | デフォルト値 (Default Value) | 説明 (Description) |
+|:---|:---|:---|
+| multiDislayCreateDelay | 0.1 | マルチディスプレイ作成時のディレイ時間(秒)。作成時に異常動作する場合は値を増やして下さい<br>Delay time (seconds) when creating a multi-display. Increase the value if abnormal operation occurs during creation. |
+| defaultCameraActiveKeyBinding | ＜Mouse＞/rightButton | サブウィンドウ用カメラ移動の有効キーバインドです<br>Enabled key bindings for camera movement for subwindows. |
+| defaultCameraElevatePositiveKeyBinding | ＜Keyboard＞/space | サブウィンドウ用カメラ移動の上移動キーバインドです<br>Up movement key bindings for camera movement for sub-windows. |
+| defaultCameraElevateNegativeKeyBinding | ＜Keyboard＞/ctrl | サブウィンドウ用カメラ移動の下移動キーバインドです<br>Down movement key bindings for camera movement for sub-windows. |
+| defaultCameraMoveUpKeyBinding | ＜Keyboard＞/w | サブウィンドウ用カメラ移動の前移動キーバインドです<br>Forward movement key bindings for camera movement for sub-windows. |
+| defaultCameraMoveLeftKeyBinding | ＜Keyboard＞/a | サブウィンドウ用カメラ移動の左移動キーバインドです<br>Left movement key bindings for camera movement for sub-windows.|
+| defaultCameraMoveDownKeyBinding | ＜Keyboard＞/s | サブウィンドウ用カメラ移動の後移動キーバインドです<br>Backward movement key bindings for camera movement for sub-windows. |
+| defaultCameraMoveRightKeyBinding | ＜Keyboard＞/d | サブウィンドウ用カメラ移動の右移動キーバインドです<br>Right movement key bindings for camera movement for sub-windows. |
+
+キーバインドはUnityのInputSystem形式で設定してください。<Br>
+Key bindings should be set in Unity's InputSystem format.
+
+# 開発者情報 (Developers)
+このプロジェクトをビルドするには、ChroMapperのインストールパスを指定する`ChroMapper-MultiDisplayWindow\ChroMapper-MultiDisplayWindow.csproj.user`ファイルを作成する必要があります。
+
+To build this project, you must create a `ChroMapper-MultiDisplayWindow\ChroMapper-MultiDisplayWindow.csproj.user` file that specifies the ChroMapper installation path.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ChroMapperDir>C:\TOOL\ChroMapper\chromapper</ChroMapperDir>
+  </PropertyGroup>
+</Project>
+```
+
+## アイコン素材 (Icons)
+- ICONION
+- http://iconion.com/ja/
+- Google Fonts (Window)
+- https://fonts.google.com/icons?selected=Material%20Icons%3Awindow%3A
