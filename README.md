@@ -1,12 +1,14 @@
 # ChroMapper-MultiDisplayWindow
 
+BeatSaberの作譜ツールの[ChroMapper](https://github.com/Caeden117/ChroMapper)で、マルチディスプレイ環境の時にマルチウィンドウで複数カメラで表示するプラグインです。
+
 カメラスクリプト作成ツールの[CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement)にあるマルチディスプレイウィンドウ機能を、作譜用に別のプラグインにしました。
+
+This is a plug-in for [ChroMapper](https://github.com/Caeden117/ChroMapper), BeatSaber's mapping tool, to display multiple cameras in multiple windows in a multi-display environment.
 
 The multi-display window feature in the [CameraMovement](https://github.com/rynan4818/ChroMapper-CameraMovement) camera scripting tool has been made into a separate plug-in for mapping.
 
 ![image](https://user-images.githubusercontent.com/14249877/171408555-26aa9a59-d6be-4c33-91fb-fcdeea42f00d.png)
-
-BeatSaberの作譜ツールの[ChroMapper](https://github.com/Caeden117/ChroMapper)で、マルチディスプレイ環境の時にマルチウィンドウで複数カメラで表示するプラグインです。
 
 PCのディスプレイの数が2個以上のときに使用可能です。
 
@@ -17,8 +19,6 @@ PCのディスプレイの数が2個以上のときに使用可能です。
 ※本プラグインはWindowsでのみ動作可能です。(マルチディスプレイをウィンドウ表示するためにWindows APIを使用しています)
 
 ------------
-
-This is a plug-in for [ChroMapper](https://github.com/Caeden117/ChroMapper), BeatSaber's mapping tool, to display multiple cameras in multiple windows in a multi-display environment.
 
 Available when the number of PC displays is two or more.
 
