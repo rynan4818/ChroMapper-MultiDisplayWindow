@@ -21,6 +21,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
         public static ActionMapsController actionMapsController;
         public static Camera[] subCamera = new Camera[3];
         public static GameObject mapEditorCamera;
+        public static Transform gridTransform;
 
         public void CreateDisplay()
         {
@@ -104,6 +105,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 subCamera[0].targetDisplay = 1;
                 ResetCamPos(1);
                 SetCamUI(1, Options.Instance.uiHidden1);
+                SetCamAttachGrid(1, Options.Instance.attachNoteGrid1);
                 SetCamFov(1, Options.Instance.subCamera1FOV);
                 actionMapsController = this.gameObject.AddComponent<ActionMapsController>();  //マルチディスプレイを有効にするまでactionMapsControllerはアクティブにしない
                 activeCameraCount = 1;
@@ -118,6 +120,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 subCamera[1].targetDisplay = 2;
                 ResetCamPos(2);
                 SetCamUI(2, Options.Instance.uiHidden2);
+                SetCamAttachGrid(2, Options.Instance.attachNoteGrid2);
                 SetCamFov(2, Options.Instance.subCamera2FOV);
                 activeCameraCount = 2;
             }
@@ -131,6 +134,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
                 subCamera[2].targetDisplay = 3;
                 ResetCamPos(3);
                 SetCamUI(3, Options.Instance.uiHidden3);
+                SetCamAttachGrid(3, Options.Instance.attachNoteGrid3);
                 SetCamFov(3, Options.Instance.subCamera3FOV);
                 activeCameraCount = 3;
             }
@@ -268,6 +272,12 @@ namespace ChroMapper_MultiDisplayWindow.Component
             else
                 subCamera[camNum - 1].cullingMask |= 1 << 11;
         }
+        public void SetCamAttachGrid(int camNum, bool lockOnGrid)
+        {
+            if (subCamera[camNum - 1] == null)
+                return;
+            subCamera[camNum - 1].transform.SetParent(!lockOnGrid ? null : gridTransform);
+        }
         public void ResetCamPos(int camNum)
         {
             if (subCamera[camNum - 1] == null)
@@ -294,6 +304,7 @@ namespace ChroMapper_MultiDisplayWindow.Component
             subCamera[1] = null;
             subCamera[2] = null;
             mapEditorCamera = GameObject.Find("MapEditor Camera");
+            gridTransform = GameObject.Find("Editor/Rotating").transform;
             SetTargetDisplay();
         }
         public void Update()

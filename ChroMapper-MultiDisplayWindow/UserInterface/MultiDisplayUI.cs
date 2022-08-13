@@ -22,7 +22,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
             _multiDisplayMenu.transform.parent = parent.transform;
 
             //Multi Display Menu
-            UI.AttachTransform(_multiDisplayMenu, 300, 240, 0.95f, 0.95f, 0, 0, 1, 1);
+            UI.AttachTransform(_multiDisplayMenu, 300, 260, 0.95f, 0.95f, 0, 0, 1, 1);
 
             Image imageSetting = _multiDisplayMenu.AddComponent<Image>();
             imageSetting.sprite = PersistentUI.Instance.Sprites.Background;
@@ -34,7 +34,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
             UI.MoveTransform(UI.AddLabel(_multiDisplayMenu.transform, "Display Counts", $"Display Counts = {Display.displays.Length}").Item1, 200, 24, 0.5f, 1, 0, -35);
 
             var messageText = UI.AddLabel(_multiDisplayMenu.transform, "Message", "");
-            UI.MoveTransform(messageText.Item1, 300, 24, 0.5f, 1, 0, -155);
+            UI.MoveTransform(messageText.Item1, 300, 24, 0.5f, 1, 0, -175);
             _message = messageText.Item2;
             _message.fontSize = 20;
 
@@ -70,6 +70,14 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                 UI.MoveTransform(uiHiden1Check.Item3.transform, 30, 25, 0, 1, 30, -85);
                 UI.MoveTransform(uiHiden1Check.Item1, 160, 16, 0, 1, 115, -80);
 
+                var attachGrid1Check = UI.AddCheckbox(_multiDisplayMenu.transform, "Attach to Grid 1", "Attach to Grid", Options.Instance.attachNoteGrid1, (check) =>
+                {
+                    Options.Instance.attachNoteGrid1 = check;
+                    Plugin.multiDisplayController.SetCamAttachGrid(1, check);
+                });
+                UI.MoveTransform(attachGrid1Check.Item3.transform, 30, 25, 0, 1, 30, -105);
+                UI.MoveTransform(attachGrid1Check.Item1, 160, 16, 0, 1, 115, -100);
+
                 var fov1Input = UI.AddTextInput(_multiDisplayMenu.transform, "FOV 1", "FOV", Options.Instance.subCamera1FOV.ToString(), (value) =>
                 {
                     float res;
@@ -79,8 +87,8 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                         Plugin.multiDisplayController.SetCamFov(1, res);
                     }
                 });
-                UI.MoveTransform(fov1Input.Item1, 60, 16, 0, 1, 15, -100);
-                UI.MoveTransform(fov1Input.Item3.transform, 30, 20, 0.1f, 1, 35, -100);
+                UI.MoveTransform(fov1Input.Item1, 60, 16, 0, 1, 15, -120);
+                UI.MoveTransform(fov1Input.Item3.transform, 30, 20, 0.1f, 1, 35, -120);
 
                 var mainCopy1Button = UI.AddButton(_multiDisplayMenu.transform, "Main Cam Copy 1", "Main Cam Copy", () =>
                 {
@@ -89,7 +97,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     else
                         _message.text = "";
                 });
-                UI.MoveTransform(mainCopy1Button.transform, 70, 25, 0, 1, 50, -125);
+                UI.MoveTransform(mainCopy1Button.transform, 70, 25, 0, 1, 50, -145);
 
                 if (Display.displays.Length > 2)
                 {
@@ -120,6 +128,14 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     UI.MoveTransform(uiHiden2Check.Item3.transform, 30, 25, 0, 1, 120, -85);
                     UI.MoveTransform(uiHiden2Check.Item1, 160, 16, 0, 1, 205, -80);
 
+                    var attachGrid2Check = UI.AddCheckbox(_multiDisplayMenu.transform, "Attach to Grid 2", "Attach to Grid", Options.Instance.attachNoteGrid2, (check) =>
+                    {
+                        Options.Instance.attachNoteGrid2 = check;
+                        Plugin.multiDisplayController.SetCamAttachGrid(2, check);
+                    });
+                    UI.MoveTransform(attachGrid2Check.Item3.transform, 30, 25, 0, 1, 120, -105);
+                    UI.MoveTransform(attachGrid2Check.Item1, 160, 16, 0, 1, 205, -100);
+
                     var fov2Input = UI.AddTextInput(_multiDisplayMenu.transform, "FOV 2", "FOV", Options.Instance.subCamera2FOV.ToString(), (value) =>
                     {
                         float res;
@@ -129,8 +145,8 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                             Plugin.multiDisplayController.SetCamFov(2, res);
                         }
                     });
-                    UI.MoveTransform(fov2Input.Item1, 60, 16, 0, 1, 105, -100);
-                    UI.MoveTransform(fov2Input.Item3.transform, 30, 20, 0.1f, 1, 125, -100);
+                    UI.MoveTransform(fov2Input.Item1, 60, 16, 0, 1, 105, -120);
+                    UI.MoveTransform(fov2Input.Item3.transform, 30, 20, 0.1f, 1, 125, -120);
 
                     var mainCopy2Button = UI.AddButton(_multiDisplayMenu.transform, "Main Cam Copy 2", "Main Cam Copy", () =>
                     {
@@ -139,7 +155,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                         else
                             _message.text = "";
                     });
-                    UI.MoveTransform(mainCopy2Button.transform, 70, 25, 0, 1, 140, -125);
+                    UI.MoveTransform(mainCopy2Button.transform, 70, 25, 0, 1, 140, -145);
                 }
 
                 if (Display.displays.Length > 3)
@@ -172,6 +188,14 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     UI.MoveTransform(uiHiden3Check.Item3.transform, 30, 25, 0, 1, 220, -85);
                     UI.MoveTransform(uiHiden3Check.Item1, 160, 16, 0, 1, 305, -80);
 
+                    var attachGrid3Check = UI.AddCheckbox(_multiDisplayMenu.transform, "Attach to Grid 3", "Attach to Grid", Options.Instance.attachNoteGrid3, (check) =>
+                    {
+                        Options.Instance.attachNoteGrid3 = check;
+                        Plugin.multiDisplayController.SetCamAttachGrid(3, check);
+                    });
+                    UI.MoveTransform(attachGrid3Check.Item3.transform, 30, 25, 0, 1, 220, -105);
+                    UI.MoveTransform(attachGrid3Check.Item1, 160, 16, 0, 1, 305, -100);
+
                     var fov3Input = UI.AddTextInput(_multiDisplayMenu.transform, "FOV 3", "FOV", Options.Instance.subCamera3FOV.ToString(), (value) =>
                     {
                         float res;
@@ -181,8 +205,8 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                             Plugin.multiDisplayController.SetCamFov(3, res);
                         }
                     });
-                    UI.MoveTransform(fov3Input.Item1, 60, 16, 0, 1, 205, -100);
-                    UI.MoveTransform(fov3Input.Item3.transform, 30, 20, 0.1f, 1, 225, -100);
+                    UI.MoveTransform(fov3Input.Item1, 60, 16, 0, 1, 205, -120);
+                    UI.MoveTransform(fov3Input.Item3.transform, 30, 20, 0.1f, 1, 225, -120);
 
                     var mainCopy3Button = UI.AddButton(_multiDisplayMenu.transform, "Main Cam Copy 3", "Main Cam Copy", () =>
                     {
@@ -191,7 +215,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                         else
                             _message.text = "";
                     });
-                    UI.MoveTransform(mainCopy3Button.transform, 70, 25, 0, 1, 240, -125);
+                    UI.MoveTransform(mainCopy3Button.transform, 70, 25, 0, 1, 240, -145);
                 }
 
                 var createButton = UI.AddButton(_multiDisplayMenu.transform, "Create Window", "Create Window", () =>
@@ -202,7 +226,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     else
                         _message.text = "";
                 });
-                UI.MoveTransform(createButton.transform, 70, 25, 0, 1, 50, -185);
+                UI.MoveTransform(createButton.transform, 70, 25, 0, 1, 50, -205);
 
                 var saveLayoutButton = UI.AddButton(_multiDisplayMenu.transform, "Save Layout", "Save Window Layout", () =>
                 {
@@ -211,7 +235,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     else
                         _message.text = "";
                 });
-                UI.MoveTransform(saveLayoutButton.transform, 70, 25, 0, 1, 140, -185);
+                UI.MoveTransform(saveLayoutButton.transform, 70, 25, 0, 1, 140, -205);
 
                 var resetLayoutButton = UI.AddButton(_multiDisplayMenu.transform, "Reset Layout", "Reset Window Layout", () =>
                 {
@@ -220,7 +244,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     else
                         _message.text = "";
                 });
-                UI.MoveTransform(resetLayoutButton.transform, 70, 25, 0, 1, 240, -185);
+                UI.MoveTransform(resetLayoutButton.transform, 70, 25, 0, 1, 240, -205);
 
                 var resetCamButton = UI.AddButton(_multiDisplayMenu.transform, "Reset Cam Pos", "Reset Cam Pos", () =>
                 {
@@ -229,7 +253,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     Plugin.multiDisplayController.ResetCamPos(3);
                     _message.text = "Reset Camera Position!";
                 });
-                UI.MoveTransform(resetCamButton.transform, 70, 25, 0, 1, 50, -215);
+                UI.MoveTransform(resetCamButton.transform, 70, 25, 0, 1, 50, -235);
 
                 var saveButton = UI.AddButton(_multiDisplayMenu.transform, "Save Cam Pos", "Save Cam Pos", () =>
                 {
@@ -238,7 +262,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                     else
                         _message.text = "";
                 });
-                UI.MoveTransform(saveButton.transform, 70, 25, 0, 1, 140, -215);
+                UI.MoveTransform(saveButton.transform, 70, 25, 0, 1, 140, -235);
             }
             else
             {
@@ -250,7 +274,7 @@ namespace ChroMapper_MultiDisplayWindow.UserInterface
                 _message.text = "";
                 _multiDisplayMenu.SetActive(false);
             });
-            UI.MoveTransform(closeButton.transform, 70, 25, 0, 1, 240, -215);
+            UI.MoveTransform(closeButton.transform, 70, 25, 0, 1, 240, -235);
 
             _multiDisplayMenu.SetActive(false);
 

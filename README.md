@@ -54,6 +54,9 @@ Load the map and bring up the editor screen. Press the **Tab key** to bring up t
 - UI Hidden
     - チェックすると、そのウィンドウでマッピング用のグリッド表示が消えます。
     - When checked, the grid display for mapping disappears in that window.
+- Attach to Grid
+    - チェックすると、360,90度譜面でカメラ位置がノーツグリッドに対して固定されます
+    - When checked, the camera position is fixed to the note grid in 360 and 90 degree maps.
 - FOV
     - カメラのFOVです。
     - Camera FOV.

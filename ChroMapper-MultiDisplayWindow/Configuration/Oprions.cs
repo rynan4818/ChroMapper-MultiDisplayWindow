@@ -17,6 +17,9 @@ namespace ChroMapper_MultiDisplayWindow.Configuration
         public bool uiHidden1 = false;
         public bool uiHidden2 = false;
         public bool uiHidden3 = false;
+        public bool attachNoteGrid1 = true;
+        public bool attachNoteGrid2 = true;
+        public bool attachNoteGrid3 = true;
         public float multiDislayCreateDelay = 0.1f;
         public int mainDisplayPosX = 0;
         public int mainDisplayPosY = 0;
